@@ -8,35 +8,40 @@ const experiences = [
     company: 'Aakash Educational Services',
     location: 'India',
     period: 'Oct 2024 – Present',
-    type: 'Ed-Tech',
+    type: 'Ed-Tech · 250K+ Active Learners',
     color: 'from-blue-500 to-cyan-500',
     glow: 'rgba(0, 113, 227, 0.15)',
     highlights: [
-      'Architected and maintained production REST APIs and microservices in Java Spring Boot serving thousands of concurrent students and educators with 99.9% uptime during peak traffic windows.',
-      'Reduced API response times by 64% and backend latency by 40% by implementing Redis caching strategies for hot-path reads, tuning slow MySQL queries, and introducing Elasticsearch indexes for search-heavy endpoints.',
-      'Led end-to-end feature development across the full software development lifecycle — scoping, design, implementation, testing, and release — collaborating closely with frontend, QA, and product teams.',
-      'Established and owned CI/CD pipelines using Jenkins and Bitbucket, enabling rapid, safe releases and reducing deployment friction for the engineering team.',
-      'Diagnosed and resolved production incidents through log analysis, metrics monitoring, and query profiling; contributed to design and code reviews and authored technical documentation.',
+      'Owned end-to-end delivery of the Report Card System — a daily-batch pipeline (EventBridge → SQS → Lambda → headless Chromium → S3 → CloudFront → email) generating personalized ranks, performance graphs, and PDFs for 250K+ students and eliminating manual report distribution entirely.',
+      'Built Concept Kundali, a performance analytics engine combining Elasticsearch + MySQL to produce topic-level weakness profiles per student, driving targeted practice suggestions for 250K+ active learners.',
+      'Shipped the Flashcards feature end-to-end — schema, Spring Boot APIs, Redis-backed per-student progress tracking, and release. Combined with Report Card and Concept Kundali, these features drove ₹5 crore (~$600K) in student revenue.',
+      'Designed a reusable Practice Module API framework in Spring Boot supporting topic-wise, full-length, adaptive, sectional, and custom formats — an abstraction layer enabling new clients to onboard with minimal code changes.',
+      'Built a real-time analytics pipeline on Elasticsearch ingesting student response events as they happen, surfacing accuracy and difficulty-level insights that feed personalized practice recommendations.',
+      'Extended the notification platform (Lambda + EventBridge + SQS + S3 + MySQL) to deliver deeplink-enabled mobile push notifications, landing users directly on relevant in-app destinations and improving engagement on time-sensitive comms.',
+      'Reduced API response times by 64% and backend latency by 40% on hot-path endpoints via Redis caching, MySQL query/schema tuning, composite indexes, and Elasticsearch indexes for search-heavy reads — sustaining 99.9% uptime during peak traffic.',
+      'Owned CI/CD on Jenkins + Bitbucket and led production incident response — log analysis, query profiling, metrics monitoring on New Relic and Grafana.',
     ],
-    tags: ['Java', 'Spring Boot', 'Redis', 'MySQL', 'Elasticsearch', 'Jenkins', 'Kubernetes'],
+    tags: ['Java', 'Spring Boot', 'MySQL', 'Redis', 'Elasticsearch', 'AWS Lambda', 'SQS', 'EventBridge', 'S3', 'CloudFront', 'Jenkins', 'Bitbucket', 'New Relic', 'Grafana'],
   },
   {
     role: 'Software Engineer',
     company: 'PwC India',
     location: 'Mumbai, India',
     period: 'Jul 2023 – Oct 2024',
-    type: 'Fintech / Consulting',
+    type: 'Fintech · 3 Banking Clients · ₹10cr+ Revenue',
     color: 'from-purple-500 to-pink-500',
     glow: 'rgba(191, 90, 242, 0.15)',
     highlights: [
-      'Built backend services and DevOps automation for fintech clients, specializing in scalable, secure, and compliant systems for large-scale payment reconciliation and fraud-risk detection platforms.',
-      'Developed backend services in Scala for a Fraud and Risk Management (FRM) platform, and Python (Flask) microservices for payment reconciliation consuming data from NPCI, CBS, and switch systems.',
-      'Designed and operated event-driven data pipelines using Apache Kafka to stream transaction events between ingestion and reconciliation services, improving throughput and decoupling upstream producers from downstream consumers.',
-      'Deployed containerized microservices to AWS EKS and Fargate using Docker and Kubernetes, authoring Dockerfiles, Kubernetes manifests, and Jenkins CI/CD pipelines for automated build, test, and release workflows.',
-      'Reduced manual operations by 50% and release downtime by 40%; lowered API response times by 25% via performance tuning, query optimization, and caching.',
-      'Partnered with security teams on compliance and data protection initiatives (improving coverage by 35%), authored runbooks and technical documentation.',
+      'Shipped the Fraud Risk Management (FRM) product to 3 Indian banking clients (small finance banks + a major private-sector bank), monitoring every channel — UPI, NEFT, RTGS — and applying real-time fraud-detection logic. Firm revenue from the engagement exceeded ₹10 crore (~$1.2M).',
+      'Sustained 100+ TPS of fraud-screened throughput per client environment at <60% system utilization (~150 TPS headroom) — each transaction triggering full rules/ML evaluation before approval. Stack: Scala backend, PostgreSQL + Cassandra, Kafka, Istio service mesh.',
+      'Designed and built an active-passive Disaster Recovery system for FRM — RTO ≤ 15 min, RPO ≤ 24h via batched daily sync with automatic traffic redirection on outage. Sold as a standalone deliverable generating ₹3 crore (~$360K) in additional client revenue.',
+      'Solved the air-gapped deployment problem for bank on-prem environments with zero internet access — designed an internal private container registry inside the bank network, mirrored all product dependencies, and configured network/firewall rules for fully offline rollouts.',
+      'Owned multi-environment CI/CD across AWS EKS (cloud) and on-prem RHEL bare-metal Kubernetes clusters — authored Dockerfiles, Helm charts, and Ansible playbooks; built pipelines for image builds, registry pushes, and rolling zero-downtime releases.',
+      'Built the data migration pipeline that moved 10M+ end-user records from legacy bank infrastructure into the FRM Kubernetes environment — batched extraction, automated CSV generation, validation, and idempotent bulk-load with checkpointing for safe re-runs.',
+      'Delivered Google Recon, an internal PwC payment reconciliation tool pipelining millions of daily transactions from CBS — Python (Django + Flask) backend with custom validation logic, Next.js frontend with interactive auditor dashboards for transaction-level investigation. End-to-end fullstack ownership.',
+      'Defined hardware/capacity sizing per client based on projected transaction load and concurrent users; partnered with security on data-protection and compliance controls (+35% coverage); authored runbooks across backend, infrastructure, and security.',
     ],
-    tags: ['Scala', 'Python', 'Flask', 'Kafka', 'AWS EKS', 'Docker', 'Kubernetes', 'PostgreSQL'],
+    tags: ['Scala', 'Python', 'Django', 'Flask', 'Next.js', 'PostgreSQL', 'Cassandra', 'Apache Kafka', 'Kubernetes', 'AWS EKS', 'RHEL', 'Istio', 'Helm', 'Ansible', 'Docker', 'Jenkins'],
   },
 ]
 
@@ -75,7 +80,7 @@ export default function Experience() {
                 key={exp.company}
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="lg:pl-16 relative"
               >
@@ -92,8 +97,8 @@ export default function Experience() {
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-8">
                     <div>
                       <div
-                        className={`inline-block text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r ${exp.color} bg-opacity-20 text-white mb-3`}
-                        style={{ background: `linear-gradient(135deg, ${exp.glow}, ${exp.glow})`, border: `1px solid rgba(255,255,255,0.1)` }}
+                        className="inline-block text-xs font-semibold px-3 py-1 rounded-full text-white mb-3 border border-white/10"
+                        style={{ background: exp.glow }}
                       >
                         {exp.type}
                       </div>
@@ -118,7 +123,7 @@ export default function Experience() {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: i * 0.05 }}
+                        transition={{ duration: 0.5, delay: i * 0.04 }}
                         className="flex items-start gap-3 text-apple-gray text-sm md:text-base leading-relaxed"
                       >
                         <span className={`mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-r ${exp.color} shrink-0`} />

@@ -28,7 +28,19 @@ const fadeUp = {
   }),
 }
 
-const techTags = ['Java', 'Spring Boot', 'Python', 'Scala', 'AWS', 'Kafka', 'Kubernetes', 'Redis']
+const techTags = [
+  'Java',
+  'Spring Boot',
+  'Scala',
+  'Python',
+  'Next.js',
+  'AWS',
+  'Kafka',
+  'Kubernetes',
+  'Cassandra',
+  'Istio',
+  'Redis',
+]
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null)
@@ -123,7 +135,7 @@ export default function Hero() {
           animate="visible"
           className="text-apple-gray text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Designing and scaling distributed systems, REST APIs, and microservices — and shipping end-to-end features across the full stack for fintech and ed-tech platforms.
+          Designing and operating event-driven, distributed systems across fintech and ed-tech — from 100+ TPS fraud-screening for banks to platforms serving 250K+ active learners.
         </motion.p>
 
         {/* Tech tags */}

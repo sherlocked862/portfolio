@@ -85,7 +85,8 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-apple-gray text-lg max-w-xl mb-16"
         >
-          I&apos;m open to full-stack engineering roles, distributed systems challenges, and fintech/ed-tech opportunities. Based in Hyderabad — drop me a line.
+          Targeting <span className="text-white">SDE-2 (fullstack-leaning)</span> roles at product-based companies — distributed systems, event-driven architectures, and end-to-end ownership. Preference for{' '}
+          <span className="text-white">Hyderabad</span>, <span className="text-white">Bangalore</span>, or <span className="text-white">remote</span>.
         </motion.p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
